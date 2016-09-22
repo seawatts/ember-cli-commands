@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-commands",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A addon that adds extra commands to ember-cli.",
   "directories": {
     "doc": "doc",
@@ -31,14 +31,14 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "loader.js": "^4.0.10",
-    "ora": "^0.3.0"
+    "loader.js": "^4.0.10"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.7"
+    "ember-cli-babel": "^5.1.7",
+    "ora": "^0.3.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
