@@ -1,5 +1,4 @@
 /* jshint node:true */
-require('dotenv').config();
 const generateChangelog = require('ember-cli-changelog/lib/tasks/release-with-changelog');
 const { exec } = require('child_process');
 
