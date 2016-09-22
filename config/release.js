@@ -6,6 +6,7 @@ const { exec } = require('child_process');
 // For details on each option run `ember help release`
 module.exports = {
   message: ':tada: %@',
+  publish: true,
   init(project, tags) {
     return execPromisified(`git hf release start ${tags.next}`);
   },
