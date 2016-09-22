@@ -8,6 +8,15 @@ Are you ever tired of typing the same ember-cli update commands posted in the em
 
 This ember addon is aimed to solve mundane tasks in ember-cli.
 
+## Installation
+
+`ember install ember-cli-commands`
+
+or
+
+`npm install --save-dev ember-cli-commands`
+
+
 ## Usage
 
 ### Commands
@@ -20,7 +29,7 @@ This ember addon is aimed to solve mundane tasks in ember-cli.
 
 * `version` (Default: `latest`) The version to update ember-cli to. 
 
-## Installation
+## Cloning
 
 * `git clone <repository-url>` this repository
 * `cd ember-cli-commands`
