@@ -32,13 +32,13 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.10",
-    "ora": "^0.3.0"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.7"
+    "ember-cli-babel": "^5.1.7",
+    "ora": "^0.3.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

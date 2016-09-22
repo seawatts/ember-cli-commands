@@ -4,7 +4,9 @@
 [![Ember Observer Score](https://emberobserver.com/badges/ember-cli-commands.svg)](https://emberobserver.com/addons/ember-cli-commands)
 [![npm version](https://badge.fury.io/js/ember-cli-commands.svg)](https://badge.fury.io/js/ember-cli-commands)
 
-This README outlines the details of collaborating on this Ember addon.
+Are you ever tired of typing the same ember-cli update commands posted in the ember-cli releases page?
+
+This ember addon is aimed to solve mundane tasks in ember-cli.
 
 ## Usage
 
