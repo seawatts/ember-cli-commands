@@ -1,6 +1,4 @@
 {
   "name": "ember-cli-commands",
-  "dependencies": {
-    "ember-cli-shims": "0.1.3"
-  }
+  "dependencies": {}
 }
