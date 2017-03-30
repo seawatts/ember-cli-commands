@@ -90,6 +90,8 @@ function runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetV
 
       return runUpgradeDeps({
         target: upgradeTargetVersion,
+        localVersion: localVersion,
+        skipInstall: true,
       }, cliContext);
     })
     .then(() => fetchEmberNewOutput(upgradeTargetVersion))
