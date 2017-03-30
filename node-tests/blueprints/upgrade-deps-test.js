@@ -5,7 +5,8 @@ const setupTestHooks = blueprintHelpers.setupTestHooks;
 const emberNew = blueprintHelpers.emberNew;
 const chai = require('ember-cli-blueprint-test-helpers/chai')
 const file = chai.file;
-const upgradeDeps = require('../../lib/commands/upgrade-deps.js');
+const upgradeDeps = require('../../lib/commands/upgrade-deps');
+const fetchEmberNewOutput = require('../../lib/utils/fetch-ember-new-output');
 
 const expect = require('ember-cli-blueprint-test-helpers/chai').expect;
 
@@ -49,30 +50,60 @@ function runUpgradeDeps(options, cliContext) {
 describe('Acceptance: ember upgrade:deps', function () {
   setupTestHooks(this);
 
-  it('upgrade:deps', function () {
+  it('changes the local ember-cli version to the target', function () {
     const upgradeTargetVersion = '2.13.0-beta.1';
     const localVersion = '2.10.0';
     const localDependencies = {
       "ember-cli": localVersion,
-      "ember-cli-eslint": "^3.0.0",
-      "ember-cli-shims": "^1.0.2",
-      "ember-simple-auth": "1.0.0",
-      "ember-source": "~2.13.0-beta.1"
     };
 
-    return emberNew()
-      .then(() => {
-        const cliContext = createContext(localVersion, localDependencies);
+    return runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetVersion);
+  });
 
-        return runUpgradeDeps({
-          target: upgradeTargetVersion,
-        }, cliContext);
-      })
-      .then(() => {
-        // TODO: Get the actual contents from the network
-        comparePackageJson(Object.assign(localDependencies, {
-          "ember-cli": upgradeTargetVersion
-        }));
-      });
+  it('keeps added packages', function () {
+    const upgradeTargetVersion = '2.13.0-beta.1';
+    const localVersion = '2.10.0';
+    const localDependencies = {
+      "ember-cli": localVersion,
+      "ember-simple-auth": "1.0.0",
+    };
+
+    return runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetVersion);
+  });
+
+  it('removes packages that are no longer in ember-new-output', function () {
+    const upgradeTargetVersion = '2.13.0-beta.1';
+    const localVersion = '2.10.0';
+    const localDependencies = {
+      "ember-cli": localVersion,
+      "ember-cli-jshint": "^2.0.1",
+    };
+
+    return runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetVersion);
   });
 });
+
+function runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetVersion) {
+  return emberNew()
+    .then(() => {
+      const cliContext = createContext(localVersion, localDependencies);
+
+      return runUpgradeDeps({
+        target: upgradeTargetVersion,
+      }, cliContext);
+    })
+    .then(() => fetchEmberNewOutput(upgradeTargetVersion))
+    .then(({
+      devDependencies,
+    }) => comparePackageJson(mergeDefined(localDependencies, devDependencies)));
+}
+
+function mergeDefined(objectA, objectB) {
+  for (let [keyA, valueA] of Object.entries(objectA)) {
+    if (valueA && objectB[keyA]) {
+      objectA[keyA] = objectB[keyA];
+    }
+  }
+
+  return objectA;
+}
