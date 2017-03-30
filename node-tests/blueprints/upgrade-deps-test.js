@@ -24,16 +24,14 @@ function createContext(currentCliVersion, devDependencies, dependencies) {
         devDependencies,
         dependencies,
       },
-      cli: {
-        analytics: {
-          version: currentCliVersion,
-        }
-      }
+      emberCLIVersion() {
+        return currentCliVersion;
+      },
     },
   };
 }
 
-function comparePackageJson(devDependencies = {}, dependencies = {}) {
+function comparePackageJson(devDependencies, dependencies) {
   const actualContents = file(`${process.cwd()}/package.json`);
   const expectedContents = JSON.stringify({
     devDependencies,
