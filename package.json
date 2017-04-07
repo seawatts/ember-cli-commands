@@ -9,7 +9,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each",
+    "test": "ember try:each && npm run nodetest",
     "nodetest": "mocha node-tests --recursive"
   },
   "repository": "https://github.com/seawatts/ember-cli-commands",

@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-env node */
 
 const blueprintHelpers = require('ember-cli-blueprint-test-helpers/helpers');
 const setupTestHooks = blueprintHelpers.setupTestHooks;
@@ -92,6 +92,7 @@ function runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetV
         target: upgradeTargetVersion,
         localVersion: localVersion,
         skipInstall: true,
+        dryRun: true,
       }, cliContext);
     })
     .then(() => fetchEmberNewOutput(upgradeTargetVersion))
