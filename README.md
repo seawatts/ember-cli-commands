@@ -39,13 +39,13 @@ or
 * `--interactive | -i` (Boolean) (Default: `false`)
 > Allow the user to interactivily upgrade the dependencies. Useful if you don't want to accept the defaults for merging.
 
-* `--use-yarn | -y` (Boolean) (Default: `false`)
+* `--yarn | -y` (Boolean) (Default: `false`)
 > Use yarn to run the install command instead of npm.
 
-* `--skip-local` (Boolean) (Default: `false`)
+* `--skip-local | -sl` (Boolean) (Default: `false`)
 > Prevent upgrading ember-cli inside an ember project
 
-* `--skip-global` (Boolean) (Default: `false`)
+* `--skip-global | -sg` (Boolean) (Default: `false`)
 > Prevent upgrading ember-cli outside an ember project.
 
 * `--dry-run | -d` (Boolean) (Default: `false`)
@@ -72,10 +72,10 @@ or
 * `--interactive | -i` (Boolean) (Default: `false`)
 > Allow the user to interactivily upgrade the dependencies. Useful if you don't want to accept the defaults for merging.
 
-* `--use-yarn | -y` (Boolean) (Default: `false`)
+* `--yarn | -y` (Boolean) (Default: `false`)
 > Use yarn to run the install command instead of npm.
 
-* `--skip-install` (Boolean) (Default: `false`)
+* `--skip-install | -si` (Boolean) (Default: `false`)
 > Prevent upgrading ember-cli inside an ember project
 
 * `--dry-run | -d` (Boolean) (Default: `false`)
