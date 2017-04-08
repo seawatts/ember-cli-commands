@@ -92,7 +92,6 @@ function runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetV
         target: upgradeTargetVersion,
         localVersion: localVersion,
         skipInstall: true,
-        dryRun: true,
       }, cliContext);
     })
     .then(() => fetchEmberNewOutput(upgradeTargetVersion))
@@ -102,11 +101,12 @@ function runUpgradeDepsAndAssert(localVersion, localDependencies, upgradeTargetV
 }
 
 function mergeDefined(objectA, objectB) {
-  for (let [keyA, valueA] of Object.entries(objectA)) {
+  Object.keys(objectA).forEach((keyA) => {
+    const valueA = objectA[keyA];
     if (valueA && objectB[keyA]) {
       objectA[keyA] = objectB[keyA];
     }
-  }
+  });
 
   return objectA;
 }
