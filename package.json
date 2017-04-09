@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-commands",
-  "version": "0.1.1",
+  "version": "1.0.0-beta.0",
   "description": "A addon that adds extra commands to ember-cli.",
   "directories": {
     "doc": "doc",
