@@ -28,6 +28,9 @@ function createContext(currentCliVersion, devDependencies, dependencies) {
       emberCLIVersion() {
         return currentCliVersion;
       },
+      isEmberCLIAddon() {
+        return false;
+      },
     },
   };
 }
