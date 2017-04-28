@@ -86,6 +86,11 @@ or
 * `--verbose | -v` (Boolean) (Default: `false`)
 > Show extra output. Useful for debugging.
 
+`versions`
+--------
+
+> Lists all the versions of ember-cli.
+
 ## Cloning
 
 * `git clone <repository-url>` this repository
