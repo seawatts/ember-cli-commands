@@ -29,7 +29,7 @@ or
 
 > Upgrades your ember-cli version globally and locally and runs all the commands specified in the ember-cli [upgrade documentation](https://ember-cli.com/user-guide/#upgrading)
 
-* `ember upgrade:deps`
+* `ember upgrade`
 * Works: `everywhere`
 
 **Parameters**
