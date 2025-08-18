@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "unhook.unhook-vscode",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml"
+  ]
+}

@@ -1,0 +1,32 @@
+# Unhook Webhook Configuration
+#
+# For more information, visit: https://docs.unhook.sh/configuration
+#
+# Copy the following URL in your services:
+# https://unhook.sh/wh_seawatts
+#
+# Optionally, you can attach ?source=Clerk to the URL.
+# Clerk: https://unhook.sh/wh_seawatts?source=clerk
+# Stripe: https://unhook.sh/wh_seawatts?source=stripe
+# etc...
+#
+# Schema:
+#   webhookId: string                    # Unique identifier for your webhook
+#   destination:                         # Array of destination endpoints
+#     - name: string                     # Name of the endpoint
+#       url: string|URL|RemotePattern    # URL to forward webhooks to
+#       ping?: boolean|string|URL        # Optional ping configuration
+#   delivery:                             # Array of delivery rules
+#     - source?: string                  # Optional source filter (default: *)
+#       destination: string              # Name of the destination from 'destination' array
+
+# Test Curl:
+# curl -X POST https://unhook.sh/wh_seawatts?source=test -H "Content-Type: application/json" -d '{"type": "test.command", "data": { "message": "Hello, world!" }}'
+
+webhookId: wh_seawatts
+destination:
+  - name: local
+    url: http://localhost:3000/api/webhooks
+delivery:
+  - source: '*'
+    destination: local
